@@ -10,8 +10,8 @@ exports.get = async (req, res, next) => {
             err.status = 400;
             throw err;
         }
-        const result = await RecordService.getRecordsByDateAndCount(req.body);
-        return res.send({ msg: 'Success', code: 0, result });
+        const records = await RecordService.getRecordsByDateAndCount(req.body);
+        return res.send({ msg: 'Success', code: 0, records });
     } catch (err) {
         next(err);
     }
