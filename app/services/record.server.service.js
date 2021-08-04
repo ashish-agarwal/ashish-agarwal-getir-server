@@ -11,6 +11,7 @@ exports.getRecordsByDateAndCount = ({ startDate, endDate, minCount, maxCount }) 
     return Record.aggregate([
         {
             $project: {
+                _id: 0,
                 key: 1,
                 createdAt: 1,
                 totalCount: { $sum: '$counts' }
